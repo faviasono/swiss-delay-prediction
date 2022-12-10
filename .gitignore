@@ -2,3 +2,4 @@ notebooks/swiss-delay-prediction.code-workspace
 notebooks/artifacts/
 notebooks/wandb
 swiss-data/
+wandb/
