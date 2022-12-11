@@ -3,3 +3,5 @@ notebooks/artifacts/
 notebooks/wandb
 swiss-data/
 wandb/
+notebooks/.DS_Store
+.DS_Store
