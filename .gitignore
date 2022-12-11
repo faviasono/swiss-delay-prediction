@@ -5,3 +5,6 @@ swiss-data/
 wandb/
 notebooks/.DS_Store
 .DS_Store
+*.png
+app/tempCodeRunnerFile.py
+*.pyc
