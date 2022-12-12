@@ -3,7 +3,7 @@ import wandb
 from sklearn.model_selection import train_test_split
 import os
 
-DATAFRAME = '/Users/favea/Downloads/swiss-data/10122022b_cleaned.csv'
+DATAFRAME = '/Users/favea/Downloads/swiss-data/10122022_cleaned.csv'
 
 cleaned_df = pd.read_csv(DATAFRAME, index_col=0)
 
