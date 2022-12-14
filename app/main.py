@@ -14,7 +14,7 @@ my_logger.setLevel(logging.DEBUG)
 MODEL_DIR_PATH = (
     os.path.join(os.path.abspath(os.path.dirname(__file__)), os.pardir) + "/models"
 )
-MODEL_NAME = "model_ckpt_0.txt"
+MODEL_NAME = "model_ckpt_1690.txt"
 TH_PREDICTIONS = 0.5
 
 model_path = os.path.join(MODEL_DIR_PATH, MODEL_NAME)
@@ -25,9 +25,8 @@ app = FastAPI()
 
 
 class Data(BaseModel):
-    """Base model for input data."""
+    """Base model for input data validation."""
 
-    carrier: constr(to_upper=True, max_length=4)
     origin: constr(to_upper=True, max_length=4)
     destination: constr(to_upper=True, max_length=4)
     distance_trip: int
@@ -35,10 +34,12 @@ class Data(BaseModel):
     cargo_data: int
     number_checked_luggages: int
     flights_per_day: int
-    previous_is_delayed: bool
-    day_of_week: conint(gt=1)
-    day_of_year: conint(gt=1)
-    month: conint(gt=1)
+    previous_is_delayed_same_day: bool
+    day_of_week: conint(gt=0,lt = 31)
+    day_of_year: conint(gt=0, lt = 366)
+    departure_minutes: conint(gt = 0, lt = 60)
+    departure_hour: conint(gt = 0, lt = 24)
+    month: conint(gt=0, lt = 12)
     total_number_passengers: int
     flights_within_hour: int
 
@@ -50,10 +51,9 @@ async def predict(data: Data):
     my_logger.debug("Loading data")
     inputs = pd.DataFrame([data.dict()])
 
-    inputs.carrier = inputs.carrier.astype("category")
     inputs.origin = inputs.origin.astype("category")
     inputs.destination = inputs.destination.astype("category")
-    inputs.previous_is_delayed = inputs.previous_is_delayed.astype("category")
+    inputs.previous_is_delayed_same_day = inputs.previous_is_delayed_same_day.astype("category")
 
     my_logger.debug("prediction")
     predictions = delay_predictor.predict(inputs)
