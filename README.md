@@ -6,6 +6,8 @@ The goal was to develop a ML Model for detecting delay at depature.
 
 Here's the Google Slides presentation: https://docs.google.com/presentation/d/1GzmNDbNrdxAQjwjwjQbp1fHU-4WG97ESRY3_O5Xoc20/edit?usp=sharing
 
+n.b. Links to Weight & Biases (W&B) runs won't work since the project is private. 
+
 
 ## APIs
 
