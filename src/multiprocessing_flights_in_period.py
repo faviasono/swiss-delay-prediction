@@ -1,7 +1,7 @@
 import pandas as pd
 from multiprocessing import cpu_count, pool
 
-cleaned_df = pd.read_csv("/Users/favea/Downloads/swiss-data/10122022_cleaned.csv")
+cleaned_df = pd.read_csv("/Users/favea/Downloads/swiss-data/12122022_cleaned.csv")
 cleaned_df.scheduled_time_departure = pd.to_datetime(
     cleaned_df.scheduled_time_departure
 )
