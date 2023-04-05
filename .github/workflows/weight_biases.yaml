@@ -75,8 +75,7 @@ jobs:
         if: steps.wandb-report.outcome == 'success'
         with:
           script: |
-             var msg = `👋 Hello!  Here's the comparison between baseline and new run id: \`${process.env.MAGIC_VAL}\ \n
-             Report available here: `$REPORT_URL` `
+             var msg = `A comparison between the linked run and baseline is available [in this report](${process.env.REPORT_URL})`
 
              github.rest.issues.createComment({
                 issue_number: context.issue.number,
