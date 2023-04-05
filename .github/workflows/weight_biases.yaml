@@ -56,7 +56,7 @@ jobs:
       - name: generate comparison report 
         if: steps.get-magic-value.outcome == 'success' && steps.get-magic-value.outputs.VAL_FOUND == 'true'
         id: wandb-report
-        run: python ./ci_cd/compare_runs.py
+        run: python compare_runs.py
         env:
             WANDB_ENTITY: andrea-faviait
             WANDB_PROJECT: swiss-delay-prediction
