@@ -8,9 +8,7 @@ permissions:
   contents: read
   issues: write
   pull-requests: write
-  
-env:
-  MAGIC_COMMENT: "/wandb"
+
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,7 +27,7 @@ jobs:
 
       - name: filter for magic comment
         id: filter
-        if: contains(github.event.comment.body, $MAGIC_COMMENT) 
+        if: contains(github.event.comment.body, "/wandb") 
         run: echo "magic commment detected"
         
       - name: parse magic comment
