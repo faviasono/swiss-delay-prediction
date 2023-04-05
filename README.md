@@ -26,3 +26,6 @@ You can open the browser at `localhost:8080/docs` to have the specification of t
 ## Tools
 
 The model was created with Scikit-learn, Imbalance-learn, LightGBM, Python, Weight & Biases, FastAPI, and Docker 🚀
+
+
+# Dummy update 
